@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interface de chatbot minimalista construída apenas com HTML, CSS e JavaScript nativos." />
+  <title>Chatbot Minimalista</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat" aria-label="Conversa com o chatbot">
+    <header class="chat__header">
+      <h1 class="chat__title">Chatbot</h1>
+      <button type="button" class="btn btn--secondary" id="clear-btn">
+        Limpar histórico
+      </button>
+    </header>
+
+    <section
+      class="chat__messages"
+      id="messages"
+      aria-label="Histórico de mensagens"
+      aria-live="polite"
+      aria-relevant="additions"
+    >
+      <!-- Indicador de digitação: sempre o último filho; mensagens são inseridas antes dele -->
+      <div
+        class="typing"
+        id="typing-indicator"
+        role="status"
+        aria-label="O bot está digitando"
+        hidden
+      >
+        <span class="typing__dot"></span>
+        <span class="typing__dot"></span>
+        <span class="typing__dot"></span>
+      </div>
+    </section>
+
+    <form class="chat__form" id="chat-form" autocomplete="off">
+      <label class="visually-hidden" for="message-input">Mensagem</label>
+      <textarea
+        class="chat__input"
+        id="message-input"
+        rows="1"
+        placeholder="Escreva uma mensagem..."
+        aria-label="Digite sua mensagem"
+      ></textarea>
+      <button type="submit" class="btn btn--primary" id="send-btn">
+        Enviar
+      </button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
